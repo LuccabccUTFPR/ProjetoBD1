@@ -1,8 +1,4 @@
-body {
 
-  background-color: GainsBoro;
-
-}
 
 .marcador{
 	background: #fe9d9d;
@@ -63,12 +59,17 @@ body {
     text-decoration: none;
     display: block;
     text-align: left;
+    z-index: 1;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  z-index: 1;
+}
 
 .dropdown:hover .dropdown-content {
     display: block;
+    z-index: 1;
 }
 
 #Menu #Vertical 
@@ -96,4 +97,19 @@ body {
     background-color: #4CAF50;
     color: white;
 }
+
+* {
+  box-sizing: border-box;
+/*   border: 1px solid black; */
+}
+
+body {
+  font-family: 'Lato';
+   -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizelegibility;
+}
+
+/*-----------------------novos codigos aqui--------------------------------*/
 

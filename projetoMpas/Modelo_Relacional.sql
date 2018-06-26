@@ -19,37 +19,35 @@ CREATE TABLE EMAILS(
 CREATE TABLE USUARIO_EMAIL(
 	login VARCHAR(200),
 	end_email VARCHAR (100),
-    FOREIGN KEY (login) REFERENCES USUARIOS(login),
-    FOREIGN KEY (end_email) REFERENCES EMAILS(end_email),
+    FOREIGN KEY (login) REFERENCES USUARIOS(login) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (end_email) REFERENCES EMAILS(end_email) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (login, end_email)
 );
 
 CREATE TABLE TELEFONES( 
-	ddd VARCHAR(2),
-	fone VARCHAR(9),
+	fone VARCHAR(12),
 	usuario VARCHAR(200), 
-	FOREIGN KEY (usuario) REFERENCES USUARIOS(login),
-	PRIMARY KEY (fone, ddd)
+	FOREIGN KEY (usuario) REFERENCES USUARIOS(login) ON DELETE CASCADE ON UPDATE CASCADE,
+	PRIMARY KEY (fone)
 );
 
 CREATE TABLE PROJETO(
 	id_projeto INT AUTO_INCREMENT,
     titulo VARCHAR(100),
     descricao VARCHAR(1000),
-    gerente VARCHAR(200) NOT NULL,
-    subprojeto INT,
+    gerente VARCHAR(200) NOT NULL ,
+    projetoPai INT,
     PRIMARY KEY(id_projeto),
-	FOREIGN KEY(subprojeto) REFERENCES PROJETO(id_projeto),
-    FOREIGN KEY(gerente) REFERENCES USUARIOS(login)
+	FOREIGN KEY(projetoPai) REFERENCES PROJETO(id_projeto),
+    FOREIGN KEY(gerente) REFERENCES USUARIOS(login) ON DELETE CASCADE ON UPDATE CASCADE
     
 );
 
 CREATE TABLE PROJETO_USUARIOS(
 	id_projeto INT,
-    id_subprojeto INT,
     login VARCHAR(200),
-    FOREIGN KEY(id_subprojeto) REFERENCES PROJETO(id_projeto),
-    FOREIGN KEY(login) REFERENCES USUARIOS(login),
+    FOREIGN KEY(id_projeto) REFERENCES PROJETO(id_projeto),
+    FOREIGN KEY(login) REFERENCES USUARIOS(login) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY(login, id_projeto)
 );
 
@@ -63,7 +61,7 @@ CREATE TABLE ATIVIDADES(
     id_projeto INT NOT NULL,
     criador VARCHAR(200)NOT NULL,
     FOREIGN KEY(id_projeto) REFERENCES PROJETO(id_projeto),
-	FOREIGN KEY(criador) REFERENCES USUARIOS(login),
+	FOREIGN KEY(criador) REFERENCES USUARIOS(login) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY(id_atividade)
 );
 
@@ -71,7 +69,7 @@ CREATE TABLE ATIVIDADES_USUARIOS(/* usuários que participam de determinadas ati
 	id_atividade INT,
     participante VARCHAR(200),
     FOREIGN KEY(id_atividade) REFERENCES ATIVIDADES(id_atividade),
-    FOREIGN KEY(participante) REFERENCES USUARIOS(login),
+    FOREIGN KEY(participante) REFERENCES USUARIOS(login) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY(id_atividade, participante)
 );
 
@@ -81,7 +79,7 @@ CREATE TABLE COMENTARIOS(
 	id_atividade INT NOT NULL,
     usuario VARCHAR(200) NOT NULL,
     FOREIGN KEY(id_atividade) REFERENCES ATIVIDADES(id_atividade),
-    FOREIGN KEY(usuario) REFERENCES USUARIOS(login),
+    FOREIGN KEY(usuario) REFERENCES USUARIOS(login) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY(id_comentario)
 );
 
@@ -92,6 +90,6 @@ CREATE TABLE ETIQUETAS(
     id_atividade INT NOT NULL,
     login VARCHAR(200) NOT NULL,
     FOREIGN KEY(id_atividade) REFERENCES ATIVIDADES(id_atividade),
-    FOREIGN KEY(login) REFERENCES USUARIOS(login),
+    FOREIGN KEY(login) REFERENCES USUARIOS(login) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY(id_etiqueta)
 );

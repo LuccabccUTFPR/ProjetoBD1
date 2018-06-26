@@ -11,10 +11,10 @@
 <body>
 <div class = "topnav">
   <ul class = "cabecalho">
-    <li class = "lista"><a class="active" style="padding:0px;"><img src="./images/logo.jpeg" style="width: 150px; height: 85px;"></a></li>
-    <li class = "lista"><a href="#news">News</a></li>
+    <li class = "lista"><a href = "/" class="active" style="padding:0px;"><img src="./images/logo.jpeg" style="width: 150px; height: 85px;"></a></li>
     <li class = "lista"><a href="#contact">Contact</a></li>
     <li class = "lista"><a href="#about">About</a></li>
+    <!--Projetos-->
     <li class="dropdown">
       <a href="javascript:void(0)" class="dropbtn">Projeto</a>
       <div class="dropdown-content">
@@ -30,12 +30,13 @@
                   <img src="logo.jpeg" alt="MPas" style="width:30%" class="w3-circle w3-margin-top">
                 </div>
 
-                <form class="w3-container" action="/action_page.php">
+                <form class="w3-container" method = "post" action = "/projeto/criarProjeto">
                   <div class="w3-section">
                     <label><b>Titulo</b></label>
-                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Título do Projeto" name="Titulo_Projeto" required>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Título do Projeto" name="titulo" autocomplete="off" required>
                     <label><b>Descricao</b></label>
-                    <input class="w3-input w3-border" type="Text" placeholder="Insira o Texto" name="Descricao" required>
+                    <input class="w3-input w3-border" type="Text" placeholder="Insira o Texto" name="descricao" autocomplete="off" required>
+                    
                     <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Criar</button>
                   </div>
                 </form>
@@ -61,10 +62,10 @@
                   <img src="logo.jpeg" alt="MPas" style="width:30%" class="w3-circle w3-margin-top">
                 </div>
 
-                <form class="w3-container" action="/action_page.php">
+                <form class="w3-container" method = "post" action = "/projeto/deletarProjeto">
                   <div class="w3-section">
-                    <label><b>Titulo</b></label>
-                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o Título" name="Titulo_Projeto" required>
+                    <label><b>Identificador</b></label>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o Identificador" name="id" autocomplete="off" required>
                     <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Deletar</button>
                   </div>
                 </form>
@@ -90,12 +91,14 @@
                   <img src="logo.jpeg" alt="MPas" style="width:30%" class="w3-circle w3-margin-top">
                 </div>
 
-                <form class="w3-container" action="/action_page.php">
+                <form class="w3-container" method = "post" action = "/projeto/editarProjeto">
                   <div class="w3-section">
-                    <label><b>Titulo</b></label>
-                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o Título" name="Titulo_Projeto" required>
-                    <label><b>Descrição</b></label>
-                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Dercrição" name="Descricao" required>
+                    <label><b>Identificador</b></label>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o identificador" name="id" autocomplete="off" required>
+                    <label><b>Novo Titulo</b></label>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o titulo" name="titulo" autocomplete="off" required>
+                    <label><b>Nova Descrição</b></label>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Dercrição" name="descricao" autocomplete="off" required>
                     <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Confirmar</button>
                   </div>
                 </form>
@@ -124,9 +127,9 @@
                 <form class="w3-container" action="/action_page.php">
                   <div class="w3-section">
                     <label><b>Login</b></label>
-                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o Login" name="Login" required>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o Login" name="Login" autocomplete="off" required>
                     <label><b>Projeto</b></label>
-                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o Projeto" name="Projeto" required>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o Projeto" name="Projeto" autocomplete="off" required>
 
                     <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Inserir</button>
 
@@ -157,9 +160,9 @@
                 <form class="w3-container" action="/action_page.php">
                   <div class="w3-section">
                     <label><b>Login</b></label>
-                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o Login do Usuário" name="Login" required>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o Login do Usuário" name="Login" autocomplete="off" required>
                     <label><b>Projeto</b></label>
-                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o Projeto" name="Projeto" required>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o Projeto" name="Projeto" autocomplete="off" required>
 
                     <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Remover</button>
                   </div>
@@ -175,343 +178,156 @@
        <!-- </a>-->
       </div>
     </li>
-    <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Atividades</a>
-        <div class="dropdown-content">
+    
 
-            <!-- <a href="#">-->
-              <div class="w3-container">
-                <button onclick="document.getElementById('id06').style.display='block'" class="w3-button">Nova Atividade</button>
+    <!-- Tela Usuario -->
+    <li class="dropdown" style="float:right">
+      <a href="javascript:void(0)" class="dropbtn"><%=nome%></a>
+      <div class="dropdown-content right">
 
-                <div id="id06" class="w3-modal">
+         <!-- <a href="#">-->
+              <div class="w3-container" style="margin-right:0px">
+                <button onclick="document.getElementById('id33').style.display='block'" class="w3-button">Excluir Conta</button>
+
+                <div id="id33" class="w3-modal">
                   <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
 
                     <div class="w3-center"><br>
-                      <span onclick="document.getElementById('id06').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                      <span onclick="document.getElementById('id33').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
                       <img src="logo.jpeg" alt="MPas" style="width:30%" class="w3-circle w3-margin-top">
                     </div>
 
-                    <form class="w3-container" action="/action_page.php">
+                    <form class="w3-container" method = "post" action="/excluir">
                       <div class="w3-section">
-                        <label><b>Titulo do Projeto</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Título da Atividade" name="Titulo_Atividade" required>
-                        <label><b>Titulo da Atividade</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Título da Atividade" name="Titulo_Atividade" required>
-                        <label><b>Descricao</b></label>
-                        <input class="w3-input w3-border" type="Text" placeholder="Insira o Texto" name="Descricao" required>
-                        <br/>
-                        <label><b>Previsão de Término</b></label>
-                        <input class="w3-input w3-border" type="date" placeholder="Insira a Data" name="Data_fim" required>
-                        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Criar</button>
-                      </div>
-                    </form>
-
-                    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-                      <button onclick="document.getElementById('id06').style.display='none'" type="button" class="w3-button w3-red">Cancelar</button>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-           <!-- </a>-->
-
-           <!--<a href="#">-->
-              <div class="w3-container">
-                <button onclick="document.getElementById('id07').style.display='block'" class="w3-button">Deletar Atividade</button>
-
-                <div id="id07" class="w3-modal">
-                  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-
-                    <div class="w3-center"><br>
-                      <span onclick="document.getElementById('id07').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-                      <img src="logo.jpeg" alt="MPas" style="width:30%" class="w3-circle w3-margin-top">
-                    </div>
-
-                    <form class="w3-container" action="/action_page.php">
-                      <div class="w3-section">
-                        <label><b>Titulo</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o Título" name="Titulo_Atividade" required>
-                        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Deletar</button>
-                      </div>
-                    </form>
-
-                    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-                      <button onclick="document.getElementById('id07').style.display='none'" type="button" class="w3-button w3-red">Cancelar</button>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-           <!-- </a>-->
-
-           <!--<a href="#">-->
-              <div class="w3-container">
-                <button onclick="document.getElementById('id08').style.display='block'" class="w3-button">Editar Atividade</button> <!-- Funcionaldade -->
-
-                <div id="id08" class="w3-modal">
-                  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-
-                    <div class="w3-center"><br>
-                      <span onclick="document.getElementById('id08').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-                      <img src="logo.jpeg" alt="MPas" style="width:30%" class="w3-circle w3-margin-top">
-                    </div>
-
-                    <form class="w3-container" action="/action_page.php">
-                      <div class="w3-section">
-                        <label><b>Título</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o Título" name="Titulo_Atividade" required>
-                        <label><b>Descrição</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Dercrição" name="Descricao" required>
-                        <label><b>Data de Término</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="date" placeholder="Insira a Data" name="Data_fim" required>
-                        <label><b>Data de Inicio</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="date" placeholder="Insira a Data" name="Data_inicio" required>
-
-                        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Confirmar</button>
-                      </div>
-                    </form>
-
-                    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-                      <button onclick="document.getElementById('id08').style.display='none'" type="button" class="w3-button w3-red">Cancelar</button>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-           <!-- </a>-->
-
-           <!--<a href="#">-->
-              <div class="w3-container"> <!-- Funcionalidades   -->
-                <button onclick="document.getElementById('id09').style.display='block'" class="w3-button">Inserir Usuario</button>
-
-                <div id="id09" class="w3-modal">
-                  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-
-                    <div class="w3-center"><br>
-                      <span onclick="document.getElementById('id09').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-                      <img src="logo.jpeg" alt="MPas" style="width:30%" class="w3-circle w3-margin-top">
-                    </div>
-
-                    <form class="w3-container" action="/action_page.php">
-                      <div class="w3-section">
-                        <label><b>Login</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o Login" name="Login" required>
-                        <label><b>Atividade</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Selecione a Atividade" name="Atividade" required>
-
-                        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Inserir</button>
-                      </div>
-                    </form>
-
-                    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-                      <button onclick="document.getElementById('id09').style.display='none'" type="button" class="w3-button w3-red">Cancelar</button>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-           <!-- </a>-->
-
-           <!--<a href="#">-->
-              <div class="w3-container">
-                <button onclick="document.getElementById('id10').style.display='block'" class="w3-button">Remover Usuario</button>
-
-                <div id="id10" class="w3-modal">
-                  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-
-                    <div class="w3-center"><br>
-                      <span onclick="document.getElementById('id10').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-                      <img src="logo.jpeg" alt="MPas" style="width:30%" class="w3-circle w3-margin-top">
-                    </div>
-
-                    <form class="w3-container" action="/action_page.php">
-                      <div class="w3-section">
-                        <label><b>Login</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o Login do Usuário" name="Login" required>
-                        <label><b>Atividade</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira a Atividade" name="Atividade" required>
-                        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Remover</button>
-                      </div>
-                    </form>
-
-                    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-                      <button onclick="document.getElementById('id10').style.display='none'" type="button" class="w3-button w3-red">Cancelar</button>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-           <!-- </a>-->
-
-        </div>
-
-    </li>
-    <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Meus Projetos</a>
-      <div class="dropdown-content">
-        <a href="#">projeto 1</a>
-        <a href="#">projeto 2</a>
-        <a href="#">projeto 3</a>
-        <a href="#">Projeto 4</a>
-        <a href="#">Projeto 5</a>
-      </div>
-    </li>
-
-       <!--<a href="#">-->
-       <li style="float:right"><a>
-              <div class="w3-container">
-                <button onclick="document.getElementById('id31').style.display='block'" class="w3-button">Excluir Conta</button> <!-- Funcionaldade -->
-
-                <div id="id31" class="w3-modal">
-                  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-
-                    <div class="w3-center" style="color:black"><br>
-                      <span onclick="document.getElementById('id31').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-                      <img src="logo.jpeg" alt="MPas" style="width:30%" class="w3-circle w3-margin-top">
-                    </div>
-
-                    <form class="w3-container" action = "/excluir" method = "post">
-                      <div class="w3-section" style="color:black">
-                        <label><b>Login</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o Título" name="login" required>
+                        <label><b>login</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Título da Atividade" name="loginExcluir" autocomplete="off" required>
+                        <label><b>senha</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="Título da Atividade" name="senhaExcluir" autocomplete="off" required>
                         <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Excluir</button>
                       </div>
                     </form>
 
                     <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-                      <button onclick="document.getElementById('id31').style.display='none'" type="button" class="w3-button w3-red">Cancelar</button>
+                      <button onclick="document.getElementById('id33').style.display='none'" type="button" class="w3-button w3-red">Cancelar</button>
                     </div>
 
                   </div>
                 </div>
               </div>
-            </a></li>
            <!-- </a>-->
 
-    <% if(!login) {%>
-      <li style="float:right"><a href="/login">Login</a></li>
-      <li style="float:right"><a href="/Cadastro">Cadastro</a></li>
-    <% } else { %>
+            <!-- <a href="#">-->
+              <div class="w3-container" style="margin-right:0px">
+                <button onclick="document.getElementById('id34').style.display='block'" class="w3-button">Alterar Conta</button>
 
-       <!--<a href="#">-->
-       <li style="float:right"><a>
-              <div class="w3-container">
-                <button onclick="document.getElementById('id30').style.display='block'" class="w3-button"><%=nome%></button> <!-- Funcionaldade -->
-
-                <div id="id30" class="w3-modal">
+                <div id="id34" class="w3-modal">
                   <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
 
-                    <div class="w3-center" style="color:black"><br>
-                      <span onclick="document.getElementById('id30').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                    <div class="w3-center"><br>
+                      <span onclick="document.getElementById('id34').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
                       <img src="logo.jpeg" alt="MPas" style="width:30%" class="w3-circle w3-margin-top">
                     </div>
 
-                    <form class="w3-container" action = "" method = "post">
-                      <div class="w3-section" style="color:black">
-                        <label><b>Login</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Insira o Título" name="Titulo_Atividade" required>
-                        <label><b>Nome</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Dercrição" name="Descricao" required>
-                        <label><b>Telefone</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="date" placeholder="Insira a Data" name="Data_fim" required>
-                        <label><b>Email</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="date" placeholder="Insira a Data" name="Data_inicio" required>
-
-                        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Alterar Conta</button>
+                    <form class="w3-container" method = "post" action="/alterar">
+                      <div class="w3-section">
+                        <label><b>login</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" value = "<%=login%>" type="text" placeholder="Título da Atividade" name="loginAlterar" autocomplete="off" required>
+                        <label><b>nome</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" value = "<%=nome%>" type="text" placeholder="Título da Atividade" name="nomeAlterar" autocomplete="off" required>
+                        <label><b>senha</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" value = "<%=senha%>" type="password" placeholder="Título da Atividade" name="senhaAlterar" autocomplete="off" required>
+                        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Alterar</button>
                       </div>
                     </form>
 
                     <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-                      <button onclick="document.getElementById('id30').style.display='none'" type="button" class="w3-button w3-red">Cancelar</button>
+                      <button onclick="document.getElementById('id34').style.display='none'" type="button" class="w3-button w3-red">Cancelar</button>
                     </div>
 
                   </div>
                 </div>
               </div>
-            </a></li>
            <!-- </a>-->
 
-    <% } %>
+           <!-- <a href="#">-->
+            <div class="w3-container" style="margin-right:0px">
+              <button onclick="document.getElementById('id35').style.display='block'" class="w3-button">Perfil</button>
+
+              <div id="id35" class="w3-modal">
+                <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+                  <div class="w3-center"><br>
+                    <span onclick="document.getElementById('id35').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                    <img src="logo.jpeg" alt="MPas" style="width:30%" class="w3-circle w3-margin-top">
+                  </div>
+
+                  <div class="w3-container" >
+                    <div class="w3-section">
+                      <div>
+                        <label><b>Login</b></label>
+                        <input  class="w3-input w3-border w3-margin-bottom" value = "<%=login%>" type = "text" disabled/>
+                      </div>
+
+                       <div>
+                        <label><b>Nome</b></label>
+                        <input  class="w3-input w3-border w3-margin-bottom" value = "<%=nome%>" type = "text" disabled/>
+                      </div>
+
+                       <div>
+                        <label><b>Telefone</b></label>
+                        <input  class="w3-input w3-border w3-margin-bottom" value = "<%=telefone%>" type = "text" disabled/>
+                      </div>
+                       <div>
+                        <label><b>Email</b></label>
+                        <input  class="w3-input w3-border w3-margin-bottom" value = "<%=email%>" type = "text" disabled/>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                    <button onclick="document.getElementById('id35').style.display='none'" type="button" class="w3-button w3-red">Cancelar</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+         <!-- </a>-->
+          <div class="w3-container" style="margin-right:0px"><a href = "/sair">Log Out</a></div>
+
+      </div>
+    </li>
   </ul>
 </div>
-<!--Comeca aqui a zoeira-->
 
-<div>
-  <div class="w3-container">
-    <div onclick="myFunction('Demo1')" class="w3-btn w3-block w3-blue w3-left-align">
 
-      <!--<a href="#">-->
-         <div class="w3-container" style="color:black">
-           <button onclick="document.getElementById('id20').style.display='block'" class="w3-button">Exemplo de Projeto</button>
-           <div id="id20" class="w3-modal" >
-             <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+<!--Criacao dos projetos-->
+      
 
-               <div class="w3-center"><br>
-                 <span onclick="document.getElementById('id20').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-                 <img src="logo.jpeg" alt="MPas" style="width:30%" class="w3-circle w3-margin-top">
-               </div>
 
-               <form class="w3-container" action="/action_page.php">
-                 <div class="w3-section">
-                   <h3>Descrição</h3>
-                   <p>Eu sou o teste de um projeto e amo ser lido S2</p>
-                 </div>
-               </form>
+  <div class="wrapper">
+    <h1>Meus Projetos</h1>
 
-               <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-                 <button onclick="document.getElementById('id20').style.display='none'" type="button" class="w3-button w3-red">Cancelar</button>
-               </div>
-
-             </div>
-           </div>
-         </div>
-      <!-- </a>-->
-    </div><!---->
-    <div id="Demo1" class="w3-container w3-hide">
-      <div onclick="myFunction('Demo2')" class="w3-btn w3-block w3-blue w3-left-align">
-        <!--<a href="#">-->
-           <div class="w3-container" style="color:black">
-             <button onclick="document.getElementById('id21').style.display='block'" class="w3-button">Exemplo de SubProjeto</button>
-
-             <div id="id21" class="w3-modal">
-               <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-
-                 <div class="w3-center"><br>
-                   <span onclick="document.getElementById('id21').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-                   <img src="logo.jpeg" alt="MPas" style="width:30%" class="w3-circle w3-margin-top">
-                 </div>
-
-                 <form class="w3-container" action="/action_page.php">
-                   <div class="w3-section">
-                     <h3>Descrição</h3>
-                     <p>Eu sou o teste de um projeto e amo ser lido S2</p>
-                   </div>
-                 </form>
-
-                 <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-                   <button onclick="document.getElementById('id21').style.display='none'" type="button" class="w3-button w3-red">Cancelar</button>
-                 </div>
-
-               </div>
-             </div>
-           </div>
-        <!-- </a>-->
-      </div>
-    </div>
-    <div id="Demo2
-    " class="w3-container w3-hide">
-        <p>Oi eu sou o goku</p>
-        <div onclick="myFunction('Demo3')" class="w3-btn w3-block w3-black w3-left-align">
-          Rello
+    <div class="cols">
+      <% projetos.forEach(function(projeto) { %>
+        <div  class="col" ontouchstart="this.classList.toggle('hover');">
+          <div class="container">
+            <div class="front" style="background-color: RoyalBlue">
+              <div class="inner">
+                <div style = "position: relative; top:-90px; left:-85px; ">id: <%=projeto.id_projeto%></div>
+                <div style = "position: relative; top:-20px; "><h3><%= projeto.titulo %></h3></div>
+              </div>
+            </div>
+            <div class="back">
+              <div class="inner">
+                <p><a id="link<%=projeto.id_projeto%>" href = "/projeto/<%=projeto.id_projeto%>" style ="text-decoration: none"> <%= projeto.descricao %> </a></p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div id="Demo3" class="w3-container w3-hide">
-            <p>Oi eu sou o goku</p>
-        </div>
-    </div>
-  </div> <!-- -->
+      <% }); %>
+    </div>       
+  </div>
 
-
-</div>
 
 
 <script>
@@ -524,8 +340,9 @@ function myFunction(id) {
     }
 }
 </script>
-</div>
-
 
 </body>
 </html>
+
+
+
